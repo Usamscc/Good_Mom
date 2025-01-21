@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4784989485156328124}
   - component: {fileID: 568492381446050434}
   - component: {fileID: 7644712749868112706}
+  - component: {fileID: 5026475277189820871}
+  - component: {fileID: 2112662933620637428}
   m_Layer: 0
   m_Name: weddingclothes2
   m_TagString: Untagged
@@ -85,6 +87,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5026475277189820871
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244862746681770233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5831443625155704661, guid: f512db19e662d2943a7d519418e1089b, type: 3}
+--- !u!114 &2112662933620637428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244862746681770233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e06f20cb0ea0ec43bfc6172623b8b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8593215258754385667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,15 +131,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 165882878520374891, guid: 286c4c14337bc5848afbdda367666d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.31
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 165882878520374891, guid: 286c4c14337bc5848afbdda367666d87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.27
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 165882878520374891, guid: 286c4c14337bc5848afbdda367666d87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 165882878520374891, guid: 286c4c14337bc5848afbdda367666d87, type: 3}
       propertyPath: m_LocalRotation.w

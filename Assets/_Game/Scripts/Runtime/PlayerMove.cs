@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        anime = GetComponent<Animator>();
+        //anime = GetComponent<Animator>();
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
         if (moveFirstTime)
         {
             transform.Translate(Vector3.forward * (Time.deltaTime * speed));
-            anime.SetBool("IsWalking", true);
+            //anime.SetBool("IsWalking", true);
 
         }
 

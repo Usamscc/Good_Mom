@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 4463059856989229061}
   pointB: {fileID: 8021774009782882298}
-  speed: 5
+  speed: 1
 --- !u!1 &6847210514016014870
 GameObject:
   m_ObjectHideFlags: 0

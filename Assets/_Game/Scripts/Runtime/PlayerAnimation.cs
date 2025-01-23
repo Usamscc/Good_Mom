@@ -10,4 +10,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetFloat("RunningSpeed", Mathf.Abs(animationSpeed)); 
     }
+
+    public void KissAnimation()
+    {
+        animator.SetBool("GoalReached",true);
+    }
+
+    public void StumbleAnimation()
+    {
+        animator.SetTrigger("Stumble");
+    }
 }

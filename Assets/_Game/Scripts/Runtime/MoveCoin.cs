@@ -8,37 +8,29 @@ using UnityEngine.UIElements.Experimental;
 public class MoveCoin : MonoBehaviour
 {
    [SerializeField] private Transform pointA,pointB;
-   private Vector3 _target;
-  /// [SerializeField] private AnimationCurve movementCurve=AnimationCurve.EaseInOut(0,0,1,1); 
-   
- 
-   private float moveDuration = 2f;
-   public float speed =.1f;
-   
-   
+  public float speed =.1f;
+  
+  
    void Start()
     {
-        
         StartCoroutine(nameof(MoveCoinCoroutine));
-        
     }
     
     
     IEnumerator MoveCoinCoroutine()
     {
-        //float TT=movementCurve.Evaluate(speed * Time.deltaTime);
         Transform targetPos = pointB;
-
+        
         while (true)
         {
             
-            while (transform.position != targetPos.position)
+            while (Vector3.Distance(transform.position, targetPos.position) > 0.1f)
             {
-                transform.position = Vector3.Lerp(transform.position, targetPos.position,speed * Time.deltaTime );
-                //remainingDistance -= Time.deltaTime * speed;
+                transform.position = Vector3.Lerp(transform.position, targetPos.position, speed * Time.deltaTime);
+               
                 yield return null; 
             }
-            transform.position = targetPos.position;
+            
             targetPos = (targetPos == pointB) ? pointA : pointB;
         }
     }

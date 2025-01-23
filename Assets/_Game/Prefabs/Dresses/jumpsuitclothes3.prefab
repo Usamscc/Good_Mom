@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3270607541834080695}
   m_Layer: 0
   m_Name: jumpsuitclothes3
-  m_TagString: Untagged
+  m_TagString: Dress
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

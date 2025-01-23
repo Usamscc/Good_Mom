@@ -6,6 +6,10 @@ TagManager:
   tags:
   - UMAKeepChain
   - UMAIgnore
+  - Dress
+  - Hair
+  - Male
+  - Obstacles
   layers:
   - Default
   - TransparentFX

@@ -177,7 +177,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 4463059856989229061}
   pointB: {fileID: 8021774009782882298}
-  speed: 1
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.45167372
+      value: 0.05058466
+      inSlope: 0.09025261
+      outSlope: 0.09025261
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7829754
+      value: 0.37744665
+      inSlope: 1.3173823
+      outSlope: 1.3173823
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speed: 0.1
 --- !u!1 &6847210514016014870
 GameObject:
   m_ObjectHideFlags: 0

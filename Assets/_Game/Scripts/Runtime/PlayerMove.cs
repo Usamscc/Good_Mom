@@ -5,55 +5,47 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
-    private float vertical;
-    public static bool moveFirstTime = false;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private PlayerAnimation playerAnimation;
+    
+    [SerializeField] private float playerSpeed = 2f;
+    [SerializeField] private Vector2 xBoundary=new Vector2( -1.5f, 2.2f);
+
+    
     private Animator anime;
 
-    private void Start()
-    {
-        //anime = GetComponent<Animator>();
-    }
+  
 
     private void Update()
     {
       
         PlayerMovement();
         CheckBoundary();
-
-        if (moveFirstTime)
-        {
-            transform.Translate(Vector3.forward * (Time.deltaTime * speed));
+        
+            // transform.Translate(Vector3.forward * (Time.deltaTime * speed));
             //anime.SetBool("IsWalking", true);
-
-        }
-
-
     }
 
     private void CheckBoundary()
     {
-        if (transform.position.x < -1.5f)
+        if (transform.position.x < xBoundary.x)
         {
-            transform.position = new Vector3(-1.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xBoundary.x, transform.position.y, transform.position.z);
         }
-        if (transform.position.x > 2.2f)
+        if (transform.position.x > xBoundary.y)
         {
-            transform.position = new Vector3(2.2f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xBoundary.y, transform.position.y, transform.position.z);
             
         }
     }
 
     private void PlayerMovement()
     {
-        if (Input.GetMouseButton(0))
-        {
-            moveFirstTime = true;
-            vertical = Input.GetAxis("Mouse X");
-            transform.Translate(Vector3.right * (Time.deltaTime * 10f *vertical));
-          
-        }
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        playerAnimation.WalkAnimation(Input.GetAxis("Vertical"));
+        controller.Move(move * Time.deltaTime * playerSpeed);
         
     }
+   
     
 }

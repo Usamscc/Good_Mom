@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class MoveCoin : MonoBehaviour
 {
    [SerializeField] private Transform pointA,pointB;
+   private Vector3 _target;
+  /// [SerializeField] private AnimationCurve movementCurve=AnimationCurve.EaseInOut(0,0,1,1); 
    
  
    private float moveDuration = 2f;
@@ -23,14 +26,15 @@ public class MoveCoin : MonoBehaviour
     
     IEnumerator MoveCoinCoroutine()
     {
+        //float TT=movementCurve.Evaluate(speed * Time.deltaTime);
         Transform targetPos = pointB;
 
         while (true)
         {
             
-            while (Vector3.Distance(transform.position, targetPos.position) > 0.1f)
+            while (transform.position != targetPos.position)
             {
-                transform.position = Vector3.Lerp(transform.position, targetPos.position, speed * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, targetPos.position,speed * Time.deltaTime );
                 //remainingDistance -= Time.deltaTime * speed;
                 yield return null; 
             }
@@ -38,46 +42,13 @@ public class MoveCoin : MonoBehaviour
             targetPos = (targetPos == pointB) ? pointA : pointB;
         }
     }
-    // IEnumerator MoveCoinCoroutine()
-    // {
-    //     Transform targetPos = pointB; // Start moving towards pointB
-    //
-    //     while (true)
-    //     {
-    //         // While moving towards the target position
-    //         while (Vector3.Distance(transform.position, targetPos.position) > 0.1f) // Use a threshold to avoid jittering
-    //         {
-    //             // Move the coin smoothly towards the target position
-    //             transform.position = Vector3.MoveTowards(transform.position, targetPos.position, speed * Time.deltaTime);
-    //             yield return null; // Wait for the next frame
-    //         }
-    //
-    //         // Once the coin reaches the target position, switch to the other point
-    //         transform.position = targetPos.position; // Ensure the coin is exactly at the target position
-    //         targetPos = (targetPos == pointB) ? pointA : pointB; // Switch target
-    //     }
-    // }
-       
-        // float elapsedTime = 0f;
-        // while (true)
-        // {
-        //     elapsedTime += Time.deltaTime*speed;
-        //     if (transform.position == pointB.position)
-        //     {
-        //         transform.position = Vector3.Lerp(transform.position, pointA.position, elapsedTime / moveDuration);
-        //     }else {
-        //         transform.position = Vector3.Lerp(transform.position, pointB.position, elapsedTime / moveDuration);
-        //     }
-        //     
-        //     yield return null;
-        // }
-        // elapsedTime = 0f;
-        private void OnDisable()
+
+   
+
+    private void OnDisable()
         {
             StopAllCoroutines();
         }
     }
 
-    
    
-

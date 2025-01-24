@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7366255375453228733}
   m_Layer: 0
   m_Name: bitcoin
-  m_TagString: Untagged
+  m_TagString: Coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

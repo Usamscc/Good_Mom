@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class MaleCollision : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private MaleAnimation maleAnimation;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
+        if (other.CompareTag("Player"))
         {
-            animator.SetBool("GoalReached",true);
-            print("helloanimator");
+         maleAnimation.KissAnimation();
+           
         }
     }
 }

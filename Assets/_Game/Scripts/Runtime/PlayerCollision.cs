@@ -7,25 +7,37 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private PlayerAnimation playerAnimation;
     [Space]
+    
     [Header("Dresses List")]
     [SerializeField] private List<GameObject> dressParent;
     [Space]
+    
     [Header("Hair List")]
     [SerializeField] private List<GameObject> hairParent;
-    private static string currentDress="cowboy";
-    private static string currentHair="businesshair";
-    
 
-    private void OnTriggerEnter(Collider other)
+
+    [SerializeField] private GameObject crown;
+    
+    private string _currentDress="cowboy";
+    private string _currentHair="businesshair";
+    private string _currentObject;
+    
+    public static event Action<string>ObjectCollided;
+
+    public string ObjectCollidedWith()
+    {
+        return _currentObject;
+    }
+    public void OnTriggerEnter(Collider other)
     {
 
         switch (other.gameObject.tag)
         {
             case "Dress":
-                ChangeAttire(dressParent,ref currentDress,other.gameObject);
+                ChangeAttire(dressParent,ref _currentDress,other.gameObject);
                 break;
             case "Hair":
-                ChangeAttire(hairParent,ref currentHair,other.gameObject);
+                ChangeAttire(hairParent,ref _currentHair,other.gameObject);
                 break;
             case "Finish":
                 print("Finished");
@@ -34,7 +46,16 @@ public class PlayerCollision : MonoBehaviour
                 playerAnimation.KissAnimation();
                 break;
             case "Obstacles":
-                playerAnimation.StumbleAnimation();
+                 playerAnimation.StumbleAnimation();
+                 GameManager.instance.BeautyScore(10);
+                break;
+            case "Coins":
+                GameManager.instance.CoinCollected();
+                other.gameObject.SetActive(false);
+                print("Coin Collected");
+                break;
+            case "Crown":
+                crown.SetActive(true);
                 break;
             default:
                 other.gameObject.SetActive(false);

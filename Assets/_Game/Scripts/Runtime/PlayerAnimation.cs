@@ -16,6 +16,11 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("GoalReached",true);
     }
 
+    public bool GoalReached()
+    {
+        return !animator.GetBool("GoalReached");
+    }
+
     public void StumbleAnimation()
     {
         animator.SetTrigger("Stumble");

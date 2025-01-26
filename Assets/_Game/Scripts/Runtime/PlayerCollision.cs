@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private PlayerAnimation playerAnimation;
+    [SerializeField] private PlayerManager playerManager;
     [Space]
     
     [Header("Dresses List")]
@@ -20,49 +21,70 @@ public class PlayerCollision : MonoBehaviour
     
     private string _currentDress="cowboy";
     private string _currentHair="businesshair";
-    private string _currentObject;
-    
-    public static event Action<string>ObjectCollided;
+   
 
-    public string ObjectCollidedWith()
+  
+    private void OnTriggerEnter(Collider other)
     {
-        return _currentObject;
-    }
-    public void OnTriggerEnter(Collider other)
-    {
+        CollisionType collisionType = GetCollisionType(other.gameObject.tag);
 
-        switch (other.gameObject.tag)
+        switch (collisionType)
         {
-            case "Dress":
-                ChangeAttire(dressParent,ref _currentDress,other.gameObject);
+            case CollisionType.GoodDress:
+                ChangeAttire(dressParent, ref _currentDress, other.gameObject);
+                print("Good Dress");
                 break;
-            case "Hair":
-                ChangeAttire(hairParent,ref _currentHair,other.gameObject);
+
+            case CollisionType.BadDress:
+                ChangeAttire(dressParent, ref _currentDress, other.gameObject);
+                print("Bad Dress");
                 break;
-            case "Finish":
-                print("Finished");
+
+            case CollisionType.GoodHairs:
+                ChangeAttire(hairParent, ref _currentHair, other.gameObject);
+                print("Good Hair");
                 break;
-            case "Male":
-                playerAnimation.KissAnimation();
+
+            case CollisionType.BadHairs:
+                ChangeAttire(hairParent, ref _currentHair, other.gameObject);
+                print("Bad Hair");
                 break;
-            case "Obstacles":
-                 playerAnimation.StumbleAnimation();
-                 GameManager.instance.BeautyScore(10);
+
+            case CollisionType.Finish:
+            case CollisionType.Male:
+            case CollisionType.Obstacles:
+                playerManager.HandleCollisionAnimation(collisionType); // Notify PlayerManager
                 break;
-            case "Coins":
+
+            case CollisionType.Coins:
                 GameManager.instance.CoinCollected();
                 other.gameObject.SetActive(false);
-                print("Coin Collected");
+                Debug.Log("Coin Collected");
                 break;
-            case "Crown":
+
+            case CollisionType.Crown:
                 crown.SetActive(true);
                 break;
+
+            case CollisionType.Unknown:
             default:
                 other.gameObject.SetActive(false);
+                Debug.LogWarning($"Unknown collision with tag: {other.gameObject.tag}");
                 break;
         }
-       
     }
+
+    private CollisionType GetCollisionType(string tag)
+    {
+        if (Enum.TryParse(tag, out CollisionType collisionType))
+        {
+            return collisionType;
+        }
+
+        return CollisionType.Unknown; // Fallback for unhandled tags
+    }
+   
+
 
     private void ChangeAttire(List<GameObject> objList, ref string currentObj,GameObject obj)
     {
@@ -79,5 +101,19 @@ public class PlayerCollision : MonoBehaviour
         }
         currentObj = obj.name;
     }
+}
+
+public enum CollisionType
+{
+    GoodDress,
+    BadDress,
+    GoodHairs,
+    BadHairs,
+    Finish,
+    Male,
+    Obstacles,
+    Coins,
+    Crown,
+    Unknown
 }
 

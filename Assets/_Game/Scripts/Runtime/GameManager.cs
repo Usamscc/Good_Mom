@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject cameraParent;
+    [SerializeField] private int beautyFactor;
     public static GameManager instance;
     
-    private bool goalReached=false;
+    private bool isGameEnded=false;
     
     public static int coinsCount=0;
     public static int beautyScore = 100;
@@ -29,8 +32,38 @@ public class GameManager : MonoBehaviour
 
     public void BeautyScore(int score)
     {
-        beautyScore-=score;
+        beautyScore+=score;
+
+        if (beautyScore < beautyFactor)
+        {
+
+        }
+        else
+        {
+
+        }
     }
+    public void GameEnded()
+    {
+        FollowPlayer cameraFollow=cameraParent.GetComponent<FollowPlayer>();
+        RotateItems cameraRotate=cameraParent.GetComponent<RotateItems>();
+
+        cameraFollow.enabled = false;
+        cameraRotate.enabled = true;
+        isGameEnded = true;
+        
+        print("Game Over " + isGameEnded);
+    }
+    public bool GetGameOver()
+    {
+        return !isGameEnded;
+    }
+
+    public void RotateCamera()
+    {
+
+    }
+
 
     public void PrintGameOver()
     {

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6054262200016782419}
   m_Layer: 0
   m_Name: businesshair2
-  m_TagString: Hair
+  m_TagString: GoodHairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

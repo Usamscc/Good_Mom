@@ -4,12 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - UMAKeepChain
-  - UMAIgnore
-  - Dress
-  - Hair
   - Male
   - Obstacles
+  - Coins
+  - Crown
+  - GoodDress
+  - BadDress
+  - GoodHairs
+  - BadHairs
+  - Hair
+  - Dress
   layers:
   - Default
   - TransparentFX

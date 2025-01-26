@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4263793032349707907}
   m_Layer: 0
   m_Name: killerhair2
-  m_TagString: Hair
+  m_TagString: BadHairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

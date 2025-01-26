@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: -6964594907715327636}
   m_Layer: 0
   m_Name: TrashCan
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

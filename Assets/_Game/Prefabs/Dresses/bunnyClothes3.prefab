@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7192222701020649463}
   m_Layer: 0
   m_Name: bunnyClothes3
-  m_TagString: Dress
+  m_TagString: BadDress
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

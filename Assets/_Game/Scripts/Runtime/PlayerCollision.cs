@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private GameObject crown;
     [Space]
     
     [Header("Dresses List")]
@@ -17,7 +18,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private List<GameObject> hairParent;
 
 
-    [SerializeField] private GameObject crown;
+   
     
     private string _currentDress="cowboy";
     private string _currentHair="businesshair";

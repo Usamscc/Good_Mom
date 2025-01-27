@@ -7,11 +7,11 @@ using UnityEngine.UIElements.Experimental;
 
 public class MoveCoin : MonoBehaviour
 {
-   [SerializeField] private Transform pointA,pointB;
-  public float speed =.1f;
+    [SerializeField] private Transform pointA,pointB;
+    public float speed =.1f;
   
   
-   void Start()
+    void Start()
     {
         StartCoroutine(nameof(MoveCoinCoroutine));
     }
@@ -38,9 +38,7 @@ public class MoveCoin : MonoBehaviour
    
 
     private void OnDisable()
-        {
-            StopAllCoroutines();
-        }
+    {
+        StopAllCoroutines();
     }
-
-   
+}

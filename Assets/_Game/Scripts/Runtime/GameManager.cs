@@ -7,14 +7,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject cameraParent;
     [SerializeField] private int beautyFactor;
+    [SerializeField] private int beautyScore = 100;
+    
     public static GameManager instance;
     
     private bool isGameEnded=false;
+    private int coinsCount=0;
     
-    public static int coinsCount=0;
-    public static int beautyScore = 100;
-    
-  
+    [HideInInspector]
+    public bool beautyPositive = true;
     
     void Start()
     {
@@ -36,10 +37,11 @@ public class GameManager : MonoBehaviour
 
         if (beautyScore < beautyFactor)
         {
-
+            beautyPositive = false;
         }
         else
         {
+            beautyPositive = true;
 
         }
     }
@@ -58,22 +60,11 @@ public class GameManager : MonoBehaviour
     {
         return !isGameEnded;
     }
-
-    public void RotateCamera()
-    {
-
-    }
-
-
+  
     public void PrintGameOver()
     {
         print("Coins Collected "+ coinsCount);
         print("Beauty Score "+ beautyScore);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

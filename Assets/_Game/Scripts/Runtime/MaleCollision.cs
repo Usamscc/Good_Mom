@@ -11,7 +11,16 @@ public class MaleCollision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-         maleAnimation.KissAnimation();
+            if (GameManager.instance.beautyPositive)
+            {
+                maleAnimation.KissAnimation();
+                
+            }
+            else
+            {
+                maleAnimation.KickAnimation();
+            }
+        
            
         }
     }

@@ -14,6 +14,8 @@ TagManager:
   - BadHairs
   - Hair
   - Dress
+  - GoodFlower
+  - BadFlower
   layers:
   - Default
   - TransparentFX

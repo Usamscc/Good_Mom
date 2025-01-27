@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    [Header("Game Objects")]
     [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private GameObject crown;
@@ -17,6 +18,14 @@ public class PlayerCollision : MonoBehaviour
     [Header("Hair List")]
     [SerializeField] private List<GameObject> hairParent;
 
+    [Header("Flowers List")] [SerializeField]
+    private List<GameObject> flowersParent;
+
+    [Space]
+    [Header("Game Variables")]
+    [SerializeField] private int dressEffectBeauty = 10;
+    [SerializeField] private int hairEffectBeauty = 10;
+    [SerializeField] private int flowersEffectBeauty = 10;
 
    
     
@@ -33,22 +42,41 @@ public class PlayerCollision : MonoBehaviour
         {
             case CollisionType.GoodDress:
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
+                GameManager.instance.BeautyScore(dressEffectBeauty); 
                 print("Good Dress");
                 break;
 
             case CollisionType.BadDress:
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
+                GameManager.instance.BeautyScore(-dressEffectBeauty); 
                 print("Bad Dress");
                 break;
 
             case CollisionType.GoodHairs:
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
+                GameManager.instance.BeautyScore(hairEffectBeauty); 
                 print("Good Hair");
                 break;
 
             case CollisionType.BadHairs:
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
+                GameManager.instance.BeautyScore(-hairEffectBeauty); 
                 print("Bad Hair");
+                break;
+            case CollisionType.GoodFlower:
+                other.gameObject.SetActive(false);
+                flowersParent[0].gameObject.SetActive(false);
+                flowersParent[1].gameObject.SetActive(true);
+                GameManager.instance.BeautyScore(flowersEffectBeauty); 
+                print("Good Flower");
+                break;
+            
+            case CollisionType.BadFlower:
+                other.gameObject.SetActive(false);
+                flowersParent[1].gameObject.SetActive(false);
+                flowersParent[0].gameObject.SetActive(true);
+                GameManager.instance.BeautyScore(-flowersEffectBeauty); 
+                print("Bad Flower");
                 break;
 
             case CollisionType.Finish:
@@ -64,6 +92,7 @@ public class PlayerCollision : MonoBehaviour
                 break;
 
             case CollisionType.Crown:
+                other.gameObject.SetActive(false);
                 crown.SetActive(true);
                 break;
 
@@ -82,12 +111,12 @@ public class PlayerCollision : MonoBehaviour
             return collisionType;
         }
 
-        return CollisionType.Unknown; // Fallback for unhandled tags
+        return CollisionType.Unknown; // unhandled tags
     }
    
 
 
-    private void ChangeAttire(List<GameObject> objList, ref string currentObj,GameObject obj)
+    private void  ChangeAttire(List<GameObject> objList, ref string currentObj,GameObject obj)
     {
         obj.gameObject.SetActive(false);
         foreach (GameObject child in objList )
@@ -110,6 +139,8 @@ public enum CollisionType
     BadDress,
     GoodHairs,
     BadHairs,
+    GoodFlower,
+    BadFlower,
     Finish,
     Male,
     Obstacles,

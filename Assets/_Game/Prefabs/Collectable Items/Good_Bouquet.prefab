@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4760483576775651741}
   m_Layer: 0
   m_Name: Good_Bouquet
-  m_TagString: Untagged
+  m_TagString: GoodFlower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

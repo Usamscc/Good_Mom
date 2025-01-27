@@ -13,7 +13,6 @@ public class FollowPlayer : MonoBehaviour
     private void Awake()
     {
         offset = transform.position - player.transform.position;
-       // print(offset);
     }
 
     private void LateUpdate()

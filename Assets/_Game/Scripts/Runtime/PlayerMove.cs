@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
-  
     
     [SerializeField] private float playerSpeed = 2f;
     [SerializeField] private Vector2 xBoundary=new Vector2( -1.5f, 2.2f);

@@ -10,4 +10,9 @@ public class MaleAnimation : MonoBehaviour
     {
         animator.SetBool("GoalReached",true);
     }
+
+    public void KickAnimation()
+    {
+        animator.SetTrigger("BadScore");
+    }
 }

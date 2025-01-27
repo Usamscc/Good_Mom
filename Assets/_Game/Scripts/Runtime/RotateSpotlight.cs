@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class RotateSpotlight : MonoBehaviour
 {
-    // Start is called before the first frame update
-   
-    // Update is called once per frame
+    [SerializeField] private float rotationSpeed = .1f;
     void Update()
     {
-        gameObject.transform.Rotate(.1f,0f,0);
+        gameObject.transform.Rotate(rotationSpeed,0f,0);
         
     }
 }

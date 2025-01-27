@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void WalkAnimation(float animationSpeed)
     {
-        animator.SetFloat("RunningSpeed", Mathf.Abs(animationSpeed)); 
+        animator.SetFloat("RunningSpeed", animationSpeed); 
     }
 
     public void KissAnimation()
@@ -16,11 +16,11 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("GoalReached",true);
     }
 
-    public bool GoalReached()
+    public void FallAnimation()
     {
-        return !animator.GetBool("GoalReached");
+        animator.SetTrigger("BadScore");
     }
-
+    
     public void StumbleAnimation()
     {
         animator.SetTrigger("Stumble");

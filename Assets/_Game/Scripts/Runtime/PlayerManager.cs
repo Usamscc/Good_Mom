@@ -9,16 +9,17 @@ public class PlayerManager : MonoBehaviour
     [Header("Game Objects")]
     [SerializeField] private PlayerMove playerMovement;
     [SerializeField] private PlayerAnimation playerAnimation;
-    [SerializeField] private ParticleSystem confettiPS;
     [SerializeField] private MaleCollision malePosiiton;
+    [SerializeField] private ParticleSystem confettiPS; 
     
     [Space]
     [Header("Game Variables")]
-    [SerializeField] private int obstacleEffectBeauty = 10;
+    
     
     private bool gameFinishedCrossed = false;
     private Vector3 move;
     private float movingSpeed = 1f;
+    private float animationSpeed = .9f;
    
    
 
@@ -28,9 +29,7 @@ public class PlayerManager : MonoBehaviour
         {
             MovePlayer();
           
-        }
-        else
-        {
+        }else{
           
             GameManager.instance.PrintGameOver();
             confettiPS.gameObject.SetActive(true);
@@ -43,74 +42,86 @@ public class PlayerManager : MonoBehaviour
 
     private void MovePlayer()
     {
-       
-
+        //check if race line crossed and restrict user to move horizontally 
         if (!gameFinishedCrossed)
         {
              move= new Vector3(Input.GetAxis("Horizontal"), 0, movingSpeed);
         }
         else
         {
-           transform.position=new Vector3(malePosiiton.transform.position.x, transform.position.y, transform.position.z);
            print( transform.position);
            move= new Vector3(0, 0, movingSpeed);
         }
-     
+      
+      
         playerMovement.PlayerMovement(move);
         
-        if (GameManager.instance.beautyPositive)
-        {
-            playerAnimation.WalkAnimation(1f);
-           
-        }
-        else
-        {
-            playerAnimation.WalkAnimation(-1f);
-           
-        }
-       
+        UpdateWalkAnimation();
+        
+        //restrict user from going out of platform
         playerMovement.CheckBoundary();
     }
 
-
+    
     public void HandleCollisionAnimation(CollisionType collisionType)
     {
         switch (collisionType)
         {
             case CollisionType.Male:
-                if (GameManager.instance.beautyPositive)
-                {
-                    playerAnimation.KissAnimation();
-                }
-                else
-                {
-                    StartCoroutine(WaiforMaleANimation());
-                    playerAnimation.FallAnimation();
-                }
-                
-                GameManager.instance.GameEnded();
+               HandleMaleCollision();   
                 break;
 
             case CollisionType.Obstacles:
-                playerAnimation.StumbleAnimation();
-                GameManager.instance.BeautyScore(-obstacleEffectBeauty); 
+                HandleObstacleCollision();
                 break;
             
             case CollisionType.Finish:
                 gameFinishedCrossed = true;
                 break;
-
-
+            
             default:
                 Debug.Log($"No specific animation for collision type: {collisionType}");
                 break;
         }
     }
-
-    IEnumerator WaiforMaleANimation()
+    
+    private void UpdateWalkAnimation()
     {
-        yield return new WaitForSeconds(10f);
+        if (GameManager.instance.beautyPositive)
+        {
+            playerAnimation.WalkAnimation(animationSpeed);
+           
+        }
+        else
+        {
+            playerAnimation.WalkAnimation(-animationSpeed);
+           
+        }
     }
+
+    private void HandleMaleCollision()
+    {
+        movingSpeed = 0;
+        if (GameManager.instance.beautyPositive)
+        {
+            playerAnimation.KissAnimation();
+        }
+        else
+        {
+                  
+            playerAnimation.FallAnimation();
+        }
+                
+        GameManager.instance.GameEnded();
+    }
+
+    private void HandleObstacleCollision()
+    {
+        playerAnimation.StumbleAnimation();
+       
+    }
+
+   
 }
 
 

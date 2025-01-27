@@ -18,11 +18,18 @@ public class PlayerAnimation : MonoBehaviour
 
     public void FallAnimation()
     {
-        animator.SetTrigger("BadScore");
+        StartCoroutine(WaiforMaleANimation());   
+       
     }
     
     public void StumbleAnimation()
     {
         animator.SetTrigger("Stumble");
+    }
+    
+    IEnumerator WaiforMaleANimation()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("BadScore");
     }
 }

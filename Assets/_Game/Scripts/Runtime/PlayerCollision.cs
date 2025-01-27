@@ -26,6 +26,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private int dressEffectBeauty = 10;
     [SerializeField] private int hairEffectBeauty = 10;
     [SerializeField] private int flowersEffectBeauty = 10;
+    [SerializeField] private int obstacleEffectBeauty = 10;
 
    
     
@@ -43,45 +44,40 @@ public class PlayerCollision : MonoBehaviour
             case CollisionType.GoodDress:
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
                 GameManager.instance.BeautyScore(dressEffectBeauty); 
-                print("Good Dress");
                 break;
 
             case CollisionType.BadDress:
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
                 GameManager.instance.BeautyScore(-dressEffectBeauty); 
-                print("Bad Dress");
                 break;
 
             case CollisionType.GoodHairs:
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
                 GameManager.instance.BeautyScore(hairEffectBeauty); 
-                print("Good Hair");
                 break;
 
             case CollisionType.BadHairs:
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
                 GameManager.instance.BeautyScore(-hairEffectBeauty); 
-                print("Bad Hair");
                 break;
+            
+            
             case CollisionType.GoodFlower:
-                other.gameObject.SetActive(false);
-                flowersParent[0].gameObject.SetActive(false);
-                flowersParent[1].gameObject.SetActive(true);
-                GameManager.instance.BeautyScore(flowersEffectBeauty); 
-                print("Good Flower");
+                HandleFlowerCollision(other.gameObject, flowersParent[0], flowersParent[1], flowersEffectBeauty);
                 break;
             
             case CollisionType.BadFlower:
-                other.gameObject.SetActive(false);
-                flowersParent[1].gameObject.SetActive(false);
-                flowersParent[0].gameObject.SetActive(true);
-                GameManager.instance.BeautyScore(-flowersEffectBeauty); 
-                print("Bad Flower");
+                HandleFlowerCollision(other.gameObject, flowersParent[1], flowersParent[0], -flowersEffectBeauty);
                 break;
-
+            
+            case CollisionType.Obstacles:
+                GameManager.instance.BeautyScore(-obstacleEffectBeauty); 
+                playerManager.HandleCollisionAnimation(collisionType);
+                break;
+            
             case CollisionType.Finish:
             case CollisionType.Male:
-            case CollisionType.Obstacles:
+            
                 playerManager.HandleCollisionAnimation(collisionType); // Notify PlayerManager
                 break;
 
@@ -104,6 +100,14 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    private void HandleFlowerCollision(GameObject other,GameObject badFlower,GameObject goodFlower, int score )
+    {
+        other.gameObject.SetActive(false);
+        badFlower.SetActive(false);
+        goodFlower.SetActive(true);
+        GameManager.instance.BeautyScore(score); 
+       
+    }
     private CollisionType GetCollisionType(string tag)
     {
         if (Enum.TryParse(tag, out CollisionType collisionType))
@@ -131,6 +135,9 @@ public class PlayerCollision : MonoBehaviour
         }
         currentObj = obj.name;
     }
+    
+    
+    
 }
 
 public enum CollisionType

@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header("GameObject")]
     [SerializeField] private CharacterController controller;
     
+    [Space]
+    [Header("Variables")]
     [SerializeField] private float playerSpeed = 2f;
     [SerializeField] private Vector2 xBoundary=new Vector2( -1.5f, 2.2f);
-
     
-    private Animator anime;
-    
-  
-
     public void CheckBoundary()
     {
         if (transform.position.x < xBoundary.x)

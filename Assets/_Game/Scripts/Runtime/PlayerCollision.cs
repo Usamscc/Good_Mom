@@ -22,7 +22,7 @@ public class PlayerCollision : MonoBehaviour
     private List<GameObject> flowersParent;
 
     [Space]
-    [Header("Game Variables")]
+    [Header("Collectable Items Effect on Beauty Bar")]
     [SerializeField] private int dressEffectBeauty = 10;
     [SerializeField] private int hairEffectBeauty = 10;
     [SerializeField] private int flowersEffectBeauty = 10;
@@ -61,7 +61,6 @@ public class PlayerCollision : MonoBehaviour
                 GameManager.instance.BeautyScore(-hairEffectBeauty); 
                 break;
             
-            
             case CollisionType.GoodFlower:
                 HandleFlowerCollision(other.gameObject, flowersParent[0], flowersParent[1], flowersEffectBeauty);
                 break;
@@ -77,7 +76,6 @@ public class PlayerCollision : MonoBehaviour
             
             case CollisionType.Finish:
             case CollisionType.Male:
-            
                 playerManager.HandleCollisionAnimation(collisionType); // Notify PlayerManager
                 break;
 
@@ -117,27 +115,33 @@ public class PlayerCollision : MonoBehaviour
 
         return CollisionType.Unknown; // unhandled tags
     }
-   
 
 
-    private void  ChangeAttire(List<GameObject> objList, ref string currentObj,GameObject obj)
+
+    private void ChangeAttire(List<GameObject> objList, ref string currentObj, GameObject obj)
     {
         obj.gameObject.SetActive(false);
-        foreach (GameObject child in objList )
+        if (currentObj != obj.name)
         {
-            if (child.name == currentObj)
+         
+            foreach (GameObject child in objList)
             {
-                child.gameObject.SetActive(false);
-            }else if (child.name == obj.name)
-            {
-                child.gameObject.SetActive(true);
+                if (child.name == currentObj)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else if (child.name == obj.name)
+                {
+                    child.gameObject.SetActive(true);
+                }
             }
+
+            currentObj = obj.name;
         }
-        currentObj = obj.name;
     }
-    
-    
-    
+
+
+
 }
 
 public enum CollisionType

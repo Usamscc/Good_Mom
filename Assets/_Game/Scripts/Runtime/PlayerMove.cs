@@ -28,8 +28,14 @@ public class PlayerMove : MonoBehaviour
 
     public void PlayerMovement(Vector3 move)
     {
+        
         controller.Move(move * Time.deltaTime * playerSpeed);
         
+    }
+
+    public void PlayerMovementTowards(Vector3 targetPosition)
+    {
+        controller.Move(targetPosition * Time.deltaTime * playerSpeed);
     }
    
     

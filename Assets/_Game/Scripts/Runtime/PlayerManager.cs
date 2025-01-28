@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private MaleCollision malePosiiton;
     [SerializeField] private ParticleSystem confettiPS; 
     
+    [SerializeField] private float lerpingStat;
+    
     [Space]
     [Header("Game Variables")]
     
@@ -20,8 +23,9 @@ public class PlayerManager : MonoBehaviour
     private Vector3 move;
     private float movingSpeed = 1f;
     private float animationSpeed = .9f;
+    private Vector3 dist;
    
-   
+   //Vector3(0.310000002,0,-186.229996)
 
     private void Update()
     {
@@ -34,6 +38,11 @@ public class PlayerManager : MonoBehaviour
             GameManager.instance.PrintGameOver();
             confettiPS.gameObject.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         
 
     }
@@ -43,23 +52,22 @@ public class PlayerManager : MonoBehaviour
     private void MovePlayer()
     {
         //check if race line crossed and restrict user to move horizontally 
-        if (!gameFinishedCrossed)
+        if (gameFinishedCrossed)
         {
-             move= new Vector3(Input.GetAxis("Horizontal"), 0, movingSpeed);
+            dist = (malePosiiton.transform.position - transform.position).normalized;
+            playerMovement.PlayerMovementTowards(dist);
         }
         else
         {
-           print( transform.position);
-           move= new Vector3(0, 0, movingSpeed);
+            move = new Vector3(Input.GetAxis("Horizontal"), 0, movingSpeed);
+            playerMovement.PlayerMovement(move);
         }
-      
-      
-        playerMovement.PlayerMovement(move);
-        
+
         UpdateWalkAnimation();
         
         //restrict user from going out of platform
         playerMovement.CheckBoundary();
+        
     }
 
     
@@ -77,6 +85,7 @@ public class PlayerManager : MonoBehaviour
             
             case CollisionType.Finish:
                 gameFinishedCrossed = true;
+                GameManager.instance.SaveData();
                 break;
             
             default:

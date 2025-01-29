@@ -1,8 +1,7 @@
 
-using OpenCover.Framework.Model;
 using UnityEngine;
 using UnityEngine.UI;
-using File = UnityEngine.Windows.File;
+
 
 
 public class GameManager : MonoBehaviour
@@ -11,7 +10,11 @@ public class GameManager : MonoBehaviour
     
     [Header("GameObjects")]
     [SerializeField] private GameObject cameraParent;
-    [SerializeField] private Text coinText,beautyText;
+    [SerializeField] private Text coinText; //,beautyText
+    
+    [SerializeField] private Slider beautySlider;
+    [SerializeField] private Slider levelSlider;
+    [SerializeField] private GameObject Male, female;
     
     [Space]
     [Header("Variables")]
@@ -22,34 +25,52 @@ public class GameManager : MonoBehaviour
     public bool beautyPositive = true;
     
     private bool isGameEnded=false;
-    private int coinsCount=0;
-    [SerializeField] private PlayerData playerData;
+    private bool isGamePaused = false;
+
+    
     private string filePath;
+    private float fullDistance;
+    [SerializeField] private PlayerData playerData;
     
-  
     
+
+
+   
+
+
     void Start()
     {
-        playerData = new PlayerData();
+       
         if (instance == null)
         {
             instance = this;
         }
         filePath = Application.dataPath + "/_Game/Data/gamedata.json";
-        if (File.Exists(filePath))
+        if (System.IO.File.Exists(filePath))
         {
             LoadData();
         }
 
+//        UiManager.instance.PauseGame += PauseGame;
+        beautySlider.value = playerData.beautyScore/100f;
+        
         coinText.text = playerData.coins.ToString();
-        beautyText.text = playerData.beautyScore.ToString();
+        
+        fullDistance= Vector3.Distance(female.transform.position, Male.transform.position);
+        // beautyText.text = playerData.beautyScore.ToString();
 
+    }
+
+    private void Update()
+    {
+        float newDistance = Vector3.Distance(female.transform.position, Male.transform.position);
+        float progressive=Mathf.InverseLerp(fullDistance,0f,newDistance);
+        levelSlider.value = progressive;
     }
 
     public void CoinCollected()
     {
-       
-        coinsCount++;
+        
         playerData.coins +=1 ;
         coinText.text = playerData.coins.ToString();
     }
@@ -59,7 +80,8 @@ public class GameManager : MonoBehaviour
       
         beautyScore+=score;
         playerData.beautyScore +=score;
-        beautyText.text = playerData.beautyScore.ToString();
+         beautySlider.value = playerData.beautyScore/100f;
+        // beautyText.text = playerData.beautyScore.ToString();
         beautyPositive = beautyScore >= beautyFactor;
         
     }
@@ -71,18 +93,17 @@ public class GameManager : MonoBehaviour
         
         print("Game Over " + isGameEnded);
     }
-    
+
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        print("Game Paused");
+    }
     public bool GetGameOver()
     {
         return !isGameEnded;
     }
-  
-    public void PrintGameOver()
-    {
-        print("Coins Collected "+ coinsCount);
-        print("Beauty Score "+ beautyScore);
-    }
-
+    
     public void SaveData()
     {
         string json = JsonUtility.ToJson(playerData);
@@ -103,27 +124,5 @@ public class GameManager : MonoBehaviour
 
 }
 
-[System.Serializable]
-public class PlayerData
-{
-    public int coins;
-    public int beautyScore;
 
-    public PlayerData()
-    {
-        coins = 0;
-        beautyScore = 100;
-    }
-    // public int CoinsCount
-    // {
-    //     get => coins;
-    //     set => coins = value;
-    // }
-    //
-    // public int BeautyScore
-    // {
-    //     get => beautyScore;
-    //     set => beautyScore = value;
-    // }
-}
 

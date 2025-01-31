@@ -1,0 +1,459 @@
+fileFormatVersion: 2
+guid: f24eb721a479e1646b07713b58d2fe32
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 170
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Bride Slap(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bride_Slap
+      parentName: Bride Slap(Clone)
+      position: {x: 0.000086158514, y: 0.9282129, z: -0.0005095613}
+      rotation: {x: -0.028386422, y: -0.007833121, z: -0.00022245076, w: 0.9995664}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:Spine
+      parentName: Bride_Slap
+      position: {x: -0, y: 0.083709486, z: -0.008097739}
+      rotation: {x: 0.0027511835, y: -0.002499985, z: -0.0085072685, w: 0.9999569}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:Spine1
+      parentName: Both_Characters_animation:mixamorig1:Spine
+      position: {x: -0, y: 0.098117016, z: 2.8341873e-10}
+      rotation: {x: 0.005667724, y: -0.0006260313, z: -0.0021045075, w: 0.9999815}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:Spine2
+      parentName: Both_Characters_animation:mixamorig1:Spine1
+      position: {x: -0, y: 0.112133555, z: -5.2976918e-11}
+      rotation: {x: 0.0056694434, y: -0.00058779726, z: -0.0021031045, w: 0.9999816}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:Neck
+      parentName: Both_Characters_animation:mixamorig1:Spine2
+      position: {x: -0, y: 0.1261504, z: 0.000000017005714}
+      rotation: {x: 0.03954712, y: 0.00368076, z: -0.00048211205, w: 0.99921083}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:Head
+      parentName: Both_Characters_animation:mixamorig1:Neck
+      position: {x: -0, y: 0.064015806, z: 0.012502131}
+      rotation: {x: -0.023353491, y: 0.03529689, z: 0.019609168, w: 0.99891156}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:HeadTop_End
+      parentName: Both_Characters_animation:mixamorig1:Head
+      position: {x: -0, y: 0.21426299, z: 0.041845035}
+      rotation: {x: -6.938894e-18, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftShoulder
+      parentName: Both_Characters_animation:mixamorig1:Spine2
+      position: {x: -0.045964282, y: 0.11204717, z: -0.0012558752}
+      rotation: {x: 0.5876272, y: -0.40913653, z: 0.56891626, w: 0.40451935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftArm
+      parentName: Both_Characters_animation:mixamorig1:LeftShoulder
+      position: {x: 1.1199667e-10, y: 0.098008074, z: -0.0000000012383689}
+      rotation: {x: -0.143139, y: -0.069164515, z: 0.0075016897, w: 0.98725444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftForeArm
+      parentName: Both_Characters_animation:mixamorig1:LeftArm
+      position: {x: -2.6250094e-10, y: 0.21035117, z: 7.1416534e-10}
+      rotation: {x: -0.0034828915, y: 0.00054514385, z: -0.03629126, w: 0.99933505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHand
+      parentName: Both_Characters_animation:mixamorig1:LeftForeArm
+      position: {x: 5.351964e-11, y: 0.19881783, z: -5.7710847e-11}
+      rotation: {x: -0.038365237, y: -0.14199558, z: 0.0074350457, w: 0.9890956}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandThumb1
+      parentName: Both_Characters_animation:mixamorig1:LeftHand
+      position: {x: 0.024196293, y: 0.025696533, z: 0.0037307306}
+      rotation: {x: -0.09413126, y: -0.005743337, z: -0.29925746, w: 0.94950056}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandThumb2
+      parentName: Both_Characters_animation:mixamorig1:LeftHandThumb1
+      position: {x: 0.0044384087, y: 0.028044663, z: 3.2968983e-10}
+      rotation: {x: 0.012970106, y: -0.029534409, z: -0.0783741, w: 0.9964021}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandThumb3
+      parentName: Both_Characters_animation:mixamorig1:LeftHandThumb2
+      position: {x: -0.001665738, y: 0.029665055, z: 2.5778404e-10}
+      rotation: {x: -0.0250262, y: 0.01602612, z: -0.04148066, w: 0.9986973}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandThumb4
+      parentName: Both_Characters_animation:mixamorig1:LeftHandThumb3
+      position: {x: -0.0027726733, y: 0.026945611, z: -9.8158065e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandIndex1
+      parentName: Both_Characters_animation:mixamorig1:LeftHand
+      position: {x: 0.022819247, y: 0.08860973, z: 0.0025500543}
+      rotation: {x: 0.06888701, y: 0.005302725, z: -0.040637717, w: 0.9967823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandIndex2
+      parentName: Both_Characters_animation:mixamorig1:LeftHandIndex1
+      position: {x: 0.00006309942, y: 0.02337526, z: -1.0758782e-10}
+      rotation: {x: 0.030483726, y: 0.00002421298, z: 0.0011290022, w: 0.9995346}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandIndex3
+      parentName: Both_Characters_animation:mixamorig1:LeftHandIndex2
+      position: {x: -0.000010866536, y: 0.02262787, z: -1.9778667e-11}
+      rotation: {x: 0.036146957, y: -0.00001469676, z: 0.0020904888, w: 0.99934435}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandIndex4
+      parentName: Both_Characters_animation:mixamorig1:LeftHandIndex3
+      position: {x: -0.000052232892, y: 0.01898607, z: -3.8298253e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandMiddle1
+      parentName: Both_Characters_animation:mixamorig1:LeftHand
+      position: {x: 0.008033615, y: 0.086549155, z: -0.0009818635}
+      rotation: {x: 0.0639388, y: -0.00035242728, z: -0.03485695, w: 0.9973449}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandMiddle2
+      parentName: Both_Characters_animation:mixamorig1:LeftHandMiddle1
+      position: {x: 0.0000026660794, y: 0.026781945, z: 6.6694095e-11}
+      rotation: {x: 0.029588565, y: -0.000020584257, z: 0.0030135778, w: 0.9995576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandMiddle3
+      parentName: Both_Characters_animation:mixamorig1:LeftHandMiddle2
+      position: {x: 0.000018919887, y: 0.025100626, z: -1.6556696e-10}
+      rotation: {x: 0.034385853, y: 0.0000011921796, z: 0.0022795058, w: 0.9994061}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandMiddle4
+      parentName: Both_Characters_animation:mixamorig1:LeftHandMiddle3
+      position: {x: -0.000021585864, y: 0.023313195, z: -5.965489e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandRing1
+      parentName: Both_Characters_animation:mixamorig1:LeftHand
+      position: {x: -0.008583314, y: 0.08109754, z: 0.0009958589}
+      rotation: {x: 0.061162286, y: -0.014486064, z: -0.028356964, w: 0.99761975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandRing2
+      parentName: Both_Characters_animation:mixamorig1:LeftHandRing1
+      position: {x: 0.000029148909, y: 0.026806593, z: -2.9328363e-11}
+      rotation: {x: 0.025497325, y: 0.000000656582, z: 0.0013398485, w: 0.999674}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandRing3
+      parentName: Both_Characters_animation:mixamorig1:LeftHandRing2
+      position: {x: -0.000016376305, y: 0.024865426, z: -2.6062708e-13}
+      rotation: {x: 0.036527492, y: 0.00002356629, z: 0.0032196715, w: 0.9993275}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandRing4
+      parentName: Both_Characters_animation:mixamorig1:LeftHandRing3
+      position: {x: -0.000012772541, y: 0.023029491, z: 1.5654677e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandPinky1
+      parentName: Both_Characters_animation:mixamorig1:LeftHand
+      position: {x: -0.022269549, y: 0.08136092, z: 0.0020354104}
+      rotation: {x: 0.06402525, y: -0.004888056, z: -0.031976108, w: 0.99742395}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandPinky2
+      parentName: Both_Characters_animation:mixamorig1:LeftHandPinky1
+      position: {x: 0.00001597097, y: 0.020667827, z: -1.0644157e-10}
+      rotation: {x: 0.030829791, y: 0.0000011557709, z: 0.0018006564, w: 0.9995231}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandPinky3
+      parentName: Both_Characters_animation:mixamorig1:LeftHandPinky2
+      position: {x: -0.00001664085, y: 0.016887251, z: -6.4233064e-13}
+      rotation: {x: 0.034748387, y: 0.000026130765, z: 0.0035415865, w: 0.9993898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftHandPinky4
+      parentName: Both_Characters_animation:mixamorig1:LeftHandPinky3
+      position: {x: 0.0000006699401, y: 0.014689584, z: -7.270557e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightShoulder
+      parentName: Both_Characters_animation:mixamorig1:Spine2
+      position: {x: 0.045964282, y: 0.11206795, z: -0.0014706701}
+      rotation: {x: -0.5603535, y: -0.43657267, z: 0.57392925, w: -0.40744773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightArm
+      parentName: Both_Characters_animation:mixamorig1:RightShoulder
+      position: {x: -1.38595e-10, y: 0.098008074, z: -0.0000000012356747}
+      rotation: {x: -0.14192812, y: 0.044733174, z: 0.0006325838, w: 0.9888655}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightForeArm
+      parentName: Both_Characters_animation:mixamorig1:RightArm
+      position: {x: 2.588367e-10, y: 0.21034992, z: 4.8005827e-10}
+      rotation: {x: -0.02824304, y: -0.31123033, z: 0.039479457, w: 0.949094}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHand
+      parentName: Both_Characters_animation:mixamorig1:RightForeArm
+      position: {x: -1.6789249e-10, y: 0.19882639, z: 8.648726e-12}
+      rotation: {x: 0.0048552244, y: 0.15927456, z: 0.044220053, w: 0.98623157}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandThumb1
+      parentName: Both_Characters_animation:mixamorig1:RightHand
+      position: {x: -0.02447729, y: 0.026784865, z: 0.004503854}
+      rotation: {x: 0.13080071, y: 0.0047679665, z: 0.2715534, w: 0.9534817}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandThumb2
+      parentName: Both_Characters_animation:mixamorig1:RightHandThumb1
+      position: {x: -0.0046148268, y: 0.02888407, z: -4.0536748e-11}
+      rotation: {x: -0.02103267, y: 0.002662454, z: 0.06532417, w: 0.99763894}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandThumb3
+      parentName: Both_Characters_animation:mixamorig1:RightHandThumb2
+      position: {x: 0.001018247, y: 0.028704634, z: -4.1250132e-11}
+      rotation: {x: 0.018158887, y: 0.0010040731, z: 0.021642273, w: 0.9996004}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandThumb4
+      parentName: Both_Characters_animation:mixamorig1:RightHandThumb3
+      position: {x: 0.0035965755, y: 0.023617046, z: 1.0930591e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandIndex1
+      parentName: Both_Characters_animation:mixamorig1:RightHand
+      position: {x: -0.02322325, y: 0.08641672, z: 0.0021771917}
+      rotation: {x: 0.065659724, y: 0.028750705, z: 0.04322589, w: 0.9964908}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandIndex2
+      parentName: Both_Characters_animation:mixamorig1:RightHandIndex1
+      position: {x: -0.00003701321, y: 0.024435176, z: -1.2790537e-10}
+      rotation: {x: 0.025617944, y: -0.0000016167752, z: -0.00042326192, w: 0.9996717}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandIndex3
+      parentName: Both_Characters_animation:mixamorig1:RightHandIndex2
+      position: {x: 0.00003295091, y: 0.02298678, z: 7.140784e-11}
+      rotation: {x: 0.035351697, y: -0.000047854992, z: -0.0032340188, w: 0.9993697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandIndex4
+      parentName: Both_Characters_animation:mixamorig1:RightHandIndex3
+      position: {x: 0.000004062297, y: 0.02016968, z: -7.5959855e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandMiddle1
+      parentName: Both_Characters_animation:mixamorig1:RightHand
+      position: {x: -0.0073534753, y: 0.08286436, z: 0.00043015042}
+      rotation: {x: 0.067484245, y: 0.02638559, z: 0.038919415, w: 0.9966117}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandMiddle2
+      parentName: Both_Characters_animation:mixamorig1:RightHandMiddle1
+      position: {x: -0.00005624616, y: 0.02775803, z: 2.2470772e-11}
+      rotation: {x: 0.026908634, y: -0.000018207349, z: -0.000698488, w: 0.9996377}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandMiddle3
+      parentName: Both_Characters_animation:mixamorig1:RightHandMiddle2
+      position: {x: 0.000012925102, y: 0.02645444, z: -7.5146996e-13}
+      rotation: {x: 0.037106536, y: -0.000011441245, z: -0.0020251574, w: 0.99930936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandMiddle4
+      parentName: Both_Characters_animation:mixamorig1:RightHandMiddle3
+      position: {x: 0.000043321055, y: 0.023599902, z: 9.240835e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandRing1
+      parentName: Both_Characters_animation:mixamorig1:RightHand
+      position: {x: 0.008311551, y: 0.07831142, z: 0.0011619573}
+      rotation: {x: 0.06416994, y: 0.031507544, z: 0.03672754, w: 0.9967651}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandRing2
+      parentName: Both_Characters_animation:mixamorig1:RightHandRing1
+      position: {x: -0.000005672304, y: 0.027845, z: -1.1278956e-10}
+      rotation: {x: 0.028458318, y: 0.000011734657, z: -0.0010197224, w: 0.9995945}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandRing3
+      parentName: Both_Characters_animation:mixamorig1:RightHandRing2
+      position: {x: 0.000049636135, y: 0.026029361, z: -4.0623147e-12}
+      rotation: {x: 0.035984483, y: 0.0000013464725, z: -0.0045566536, w: 0.999342}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandRing4
+      parentName: Both_Characters_animation:mixamorig1:RightHandRing3
+      position: {x: -0.000043963773, y: 0.02249479, z: -2.4541008e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandPinky1
+      parentName: Both_Characters_animation:mixamorig1:RightHand
+      position: {x: 0.022265175, y: 0.07591701, z: 0.0017341339}
+      rotation: {x: 0.06975079, y: 0.03740618, z: 0.03226512, w: 0.9963406}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandPinky2
+      parentName: Both_Characters_animation:mixamorig1:RightHandPinky1
+      position: {x: -0.00000600578, y: 0.022996005, z: 3.020915e-11}
+      rotation: {x: 0.02677053, y: -0.000002987681, z: -0.0015436341, w: 0.99964046}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandPinky3
+      parentName: Both_Characters_animation:mixamorig1:RightHandPinky2
+      position: {x: 0.0000108113045, y: 0.018561777, z: 2.807411e-11}
+      rotation: {x: 0.031964827, y: -0.0000075865673, z: -0.0027801357, w: 0.99948514}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightHandPinky4
+      parentName: Both_Characters_animation:mixamorig1:RightHandPinky3
+      position: {x: -0.0000048055276, y: 0.017376108, z: 2.9793057e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftUpLeg
+      parentName: Bride_Slap
+      position: {x: -0.07239036, y: -0.04658348, z: 0.004054215}
+      rotation: {x: -0.03185723, y: 0.02028226, z: 0.9992866, w: 0.00021666489}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftLeg
+      parentName: Both_Characters_animation:mixamorig1:LeftUpLeg
+      position: {x: 1.8633716e-11, y: 0.39505598, z: 7.170193e-11}
+      rotation: {x: -0.13628852, y: 0.012698849, z: -0.021139646, w: 0.9903622}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftFoot
+      parentName: Both_Characters_animation:mixamorig1:LeftLeg
+      position: {x: -1.5717834e-10, y: 0.39026552, z: 8.120354e-11}
+      rotation: {x: 0.46533573, y: -0.020859424, z: 0.053173445, w: 0.8832894}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftToeBase
+      parentName: Both_Characters_animation:mixamorig1:LeftFoot
+      position: {x: -1.6146597e-10, y: 0.12752737, z: 0.0000000024984985}
+      rotation: {x: 0.2576347, y: 0.0015831648, z: -0.0005528622, w: 0.96624094}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:LeftToe_End
+      parentName: Both_Characters_animation:mixamorig1:LeftToeBase
+      position: {x: -1.3252972e-11, y: 0.0494283, z: 5.7408512e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightUpLeg
+      parentName: Bride_Slap
+      position: {x: 0.07239036, y: -0.04658348, z: 0.0016635752}
+      rotation: {x: 0.085550666, y: 0.0053109224, z: 0.9961857, w: 0.016336694}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightLeg
+      parentName: Both_Characters_animation:mixamorig1:RightUpLeg
+      position: {x: 2.563107e-11, y: 0.3950224, z: 4.998786e-11}
+      rotation: {x: -0.122445345, y: -0.02206341, z: -0.012411648, w: 0.9921524}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightFoot
+      parentName: Both_Characters_animation:mixamorig1:RightLeg
+      position: {x: 8.665755e-11, y: 0.39025688, z: 2.908379e-10}
+      rotation: {x: 0.5561035, y: 0.05558932, z: 0.009580905, w: 0.8291966}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightToeBase
+      parentName: Both_Characters_animation:mixamorig1:RightFoot
+      position: {x: 8.926531e-10, y: 0.12830952, z: -0.0000000025760476}
+      rotation: {x: 0.27899036, y: 0.0016392878, z: 0.0007931106, w: 0.96029216}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Both_Characters_animation:mixamorig1:RightToe_End
+      parentName: Both_Characters_animation:mixamorig1:RightToeBase
+      position: {x: 2.3579913e-10, y: 0.049285848, z: -1.2077583e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

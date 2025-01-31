@@ -1,0 +1,130 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance;
+    
+    [Header("GameObjects")]
+    [SerializeField] private GameObject cameraParent;
+    
+    
+    [Space]
+    [Header("Variables")]
+    [SerializeField] private int beautyFactor;
+    [SerializeField] private int beautyScore = 100;
+    [SerializeField] private PlayerData playerData;
+    
+    [HideInInspector]
+    public bool beautyPositive = true;
+    
+    private bool isGameEnded=false;
+    private bool isGamePaused = false;
+    
+    private string filePath;
+  
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        //UiManager.instance.PauseGame += PauseGame;
+    }
+
+    private void Start()
+    {
+        LoadData();
+    }
+
+
+    public void CoinCollected()
+    {
+        playerData.coins +=1 ;
+        UiManager.instance.SetCoinText( playerData.coins.ToString());
+    }
+
+    public void BeautyScore(int score)
+    {
+        beautyScore+=score;
+        playerData.beautyScore +=score;
+        if (playerData.beautyScore < 0)
+        {
+            playerData.beautyScore = 0;
+        }
+        UiManager.instance.BeautySliderSetter(playerData.beautyScore/100f); 
+        // beautyText.text = playerData.beautyScore.ToString();
+        beautyPositive =  playerData.beautyScore >= beautyFactor;
+        
+    }
+    public void GameEnded()
+    {
+        if (beautyPositive)
+        {
+            RotateItems cameraRotate=cameraParent.GetComponent<RotateItems>();
+            cameraRotate.enabled = true;
+            isGameEnded = true;
+        }
+
+        else
+        {
+            Invoke(nameof(UiManager.instance.FailedScreenPopUp),5f);
+        }
+        
+    }
+
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        print("Game Paused");
+    }
+    
+    
+    public bool GetGameOver()
+    {
+        return !isGameEnded;
+    }
+    
+    public void SaveData()
+    {
+        string json = JsonUtility.ToJson(playerData);
+        print(json);
+        System.IO.File.WriteAllText(filePath, json);
+       
+    }
+
+    private void LoadData()
+    {
+        filePath = Application.persistentDataPath + "/gamedata.json";
+        if (!System.IO.File.Exists(filePath))
+        {
+            return;
+        }
+        string json = System.IO.File.ReadAllText(filePath);
+        playerData = JsonUtility.FromJson<PlayerData>(json);
+        
+        UiManager.instance.BeautySliderSetter(playerData.beautyScore/100f);
+        UiManager.instance.SetCoinText( playerData.coins.ToString());
+        
+        // string json = PlayerPrefs.GetString("SaveData");
+        print("From load data "+playerData.coins);
+        print("From load data "+playerData.beautyScore);
+    }
+
+    public void FullLevelDistance(float distance)
+    {
+        UiManager.instance.SetFullDistance(distance);
+        
+    }
+    public void RemainingLevelDistance(Transform female, Transform male)
+    {
+        float newDistance = Vector3.Distance(female.position, male.position);
+       
+        UiManager.instance.LevelSliderSetter(newDistance);
+        
+    }
+
+}
+
+
+

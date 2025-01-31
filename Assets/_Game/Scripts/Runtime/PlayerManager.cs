@@ -34,9 +34,6 @@ public class PlayerManager : MonoBehaviour
         {
             MovePlayer();
           
-        }else{
-            
-            confettiPS.gameObject.SetActive(true);
         }
         
        
@@ -68,14 +65,6 @@ public class PlayerManager : MonoBehaviour
         playerMovement.CheckBoundary();
         
     }
-
-    // private void IsWorking()
-    // {
-    //     if (Input.GetMouseButton(0))
-    //     {Debug.Log("isworking");
-    //         isactive = true;
-    //     }
-    // }
 
     
     public void HandleCollisionAnimation(CollisionType collisionType)
@@ -122,6 +111,7 @@ public class PlayerManager : MonoBehaviour
         if (GameManager.instance.beautyPositive)
         {
             playerAnimation.KissAnimation();
+            confettiPS.gameObject.SetActive(true);
         }
         else
         {

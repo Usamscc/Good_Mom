@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] private GameObject cameraParent;
     
-    
+    // Vector3(0.310000002,-0.061999999,-187.369995)
     
     [Space]
     [Header("Variables")]
@@ -61,8 +61,18 @@ public class GameManager : MonoBehaviour
     public void GameEnded()
     {
         RotateItems cameraRotate = cameraParent.GetComponent<RotateItems>();
-        cameraRotate.enabled = true;
         isGameEnded = true;
+
+        if (beautyPositive)
+        {
+            cameraRotate.enabled = true;
+           
+            print("sharam ker");
+        }
+        else
+        {
+            UiManager.instance.FailedScreenPopUp();
+        }
         
         // if (beautyPositive)
         // {

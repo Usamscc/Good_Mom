@@ -8,17 +8,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject cameraParent;
     
     
+    
     [Space]
     [Header("Variables")]
     [SerializeField] private int beautyFactor;
     [SerializeField] private int beautyScore = 100;
     [SerializeField] private PlayerData playerData;
     
-    [HideInInspector]
-    public bool beautyPositive = true;
+    [HideInInspector] public bool beautyPositive = true;
+    [HideInInspector] public bool isGameStarted = false;
     
     private bool isGameEnded=false;
     private bool isGamePaused = false;
+    
     
     private string filePath;
   
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        //UiManager.instance.PauseGame += PauseGame;
     }
 
     private void Start()
@@ -59,18 +60,35 @@ public class GameManager : MonoBehaviour
     }
     public void GameEnded()
     {
-        if (beautyPositive)
+        RotateItems cameraRotate = cameraParent.GetComponent<RotateItems>();
+        cameraRotate.enabled = true;
+        isGameEnded = true;
+        
+        // if (beautyPositive)
+        // {
+        //     RotateItems cameraRotate = cameraParent.GetComponent<RotateItems>();
+        //     cameraRotate.enabled = true;
+        //     isGameEnded = true;
+        // }
+        // else
+        // {
+        //     UiManager.instance.FailedScreenPopUp();
+        // }
+        //
+        
+    }
+
+    public void StartGame()
+    {
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            RotateItems cameraRotate=cameraParent.GetComponent<RotateItems>();
-            cameraRotate.enabled = true;
-            isGameEnded = true;
+            isGameStarted = true;
         }
 
-        else
+        if (isGameStarted)
         {
-            Invoke(nameof(UiManager.instance.FailedScreenPopUp),5f);
+            UiManager.instance.DeactivateTutorial();
         }
-        
     }
 
     public void PauseGame()

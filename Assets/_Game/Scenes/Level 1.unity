@@ -1585,7 +1585,6 @@ Transform:
   m_Children:
   - {fileID: 1486159182}
   - {fileID: 1455723290}
-  - {fileID: 1511453127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606382897
@@ -3701,6 +3700,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332996556}
   m_CullTransparentMesh: 1
+--- !u!1 &1339265132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5632262422477068471, guid: 18cc509a5e93f8c40b4ce947733b9e20, type: 3}
+  m_PrefabInstance: {fileID: 1638285623300053808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363008125
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,12 +4298,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraParent: {fileID: 641585531}
-  beautyFactor: 80
+  beautyFactor: 20
   beautyScore: 100
   playerData:
     coins: 0
     beautyScore: 100
   beautyPositive: 1
+  isGameStarted: 0
 --- !u!4 &1455723290
 Transform:
   m_ObjectHideFlags: 0
@@ -4496,9 +4501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPopUp: {fileID: 606382897}
+  failedScreenPopUp: {fileID: 2133714182}
+  topBar: {fileID: 7933936121356457363}
+  sliderCanvas: {fileID: 1835833934}
   coinText: {fileID: 1979795984}
   beautySlider: {fileID: 2017918779}
   levelSlider: {fileID: 1562811503}
+  swipeSlider: {fileID: 1339265132}
 --- !u!1001 &1497088999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4574,55 +4583,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8959630432125621900, guid: dd4c852e87b33ec4d8e37df3b4acb8bb, type: 3}
   m_PrefabInstance: {fileID: 1453219097}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1511453126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1511453127}
-  - component: {fileID: 1511453128}
-  m_Layer: 0
-  m_Name: Score Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1511453127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511453126}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 569474753}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1511453128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511453126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef46b7898a409e498d77c1fe0d7d473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beautyFactor: 0
-  beautyScore: 100
-  playerData:
-    coins: 0
-    beautyScore: 50
 --- !u!1 &1518600721
 GameObject:
   m_ObjectHideFlags: 0

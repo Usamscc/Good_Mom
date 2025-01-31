@@ -39,14 +39,15 @@ public class PlayerManager : MonoBehaviour
             confettiPS.gameObject.SetActive(true);
         }
         
-        
+       
         GameManager.instance.RemainingLevelDistance(transform,malePosiiton.transform);
         
     }
    
     private void MovePlayer()
     {
-        if (isactive)
+        GameManager.instance.StartGame();
+        if (GameManager.instance.isGameStarted)
         {
             //check if race line crossed and restrict user to move horizontally 
             if (gameFinishedCrossed)
@@ -82,7 +83,8 @@ public class PlayerManager : MonoBehaviour
         switch (collisionType)
         {
             case CollisionType.Male:
-               HandleMaleCollision();   
+               HandleMaleCollision(); 
+               GameManager.instance.GameEnded();
                 break;
 
             case CollisionType.Obstacles:
@@ -127,7 +129,7 @@ public class PlayerManager : MonoBehaviour
             playerAnimation.FallAnimation();
         }
                 
-        GameManager.instance.GameEnded();
+       
     }
 
     private void HandleObstacleCollision()

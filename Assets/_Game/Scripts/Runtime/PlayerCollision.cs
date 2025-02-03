@@ -8,6 +8,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private GameObject crown;
+    [SerializeField] private ParticleSystem collisionEffect;
     [Space]
     
     [Header("Dresses List")]
@@ -26,6 +27,8 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private int hairEffectBeauty = 10;
     [SerializeField] private int flowersEffectBeauty = 10;
     [SerializeField] private int obstacleEffectBeauty = 10;
+    [SerializeField] private int crownEffectBeauty = 10;
+    [SerializeField] private int coinEffectBeauty = 2;
 
    
     
@@ -41,34 +44,43 @@ public class PlayerCollision : MonoBehaviour
         switch (collisionType)
         {
             case CollisionType.GoodDress:
+                AudioManager.instance.Play("Positive");
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
                 GameManager.instance.BeautyScore(dressEffectBeauty); 
                 break;
 
             case CollisionType.BadDress:
+                AudioManager.instance.Play("Negative");
                 ChangeAttire(dressParent, ref _currentDress, other.gameObject);
                 GameManager.instance.BeautyScore(-dressEffectBeauty); 
                 break;
 
             case CollisionType.GoodHairs:
+                AudioManager.instance.Play("Positive");
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
                 GameManager.instance.BeautyScore(hairEffectBeauty); 
                 break;
 
             case CollisionType.BadHairs:
+                AudioManager.instance.Play("Negative");
                 ChangeAttire(hairParent, ref _currentHair, other.gameObject);
                 GameManager.instance.BeautyScore(-hairEffectBeauty); 
                 break;
             
             case CollisionType.GoodFlower:
+                collisionEffect.Play();
+                AudioManager.instance.Play("Positive");
                 HandleFlowerCollision(other.gameObject, flowersParent[0], flowersParent[1], flowersEffectBeauty);
                 break;
             
             case CollisionType.BadFlower:
+                collisionEffect.Play();
+                AudioManager.instance.Play("Negative");
                 HandleFlowerCollision(other.gameObject, flowersParent[1], flowersParent[0], -flowersEffectBeauty);
                 break;
             
             case CollisionType.Obstacles:
+                AudioManager.instance.Play("Negative");
                 GameManager.instance.BeautyScore(-obstacleEffectBeauty); 
                 playerManager.HandleCollisionAnimation(collisionType);
                 break;
@@ -80,11 +92,15 @@ public class PlayerCollision : MonoBehaviour
 
             case CollisionType.Coins:
                 GameManager.instance.CoinCollected();
+                GameManager.instance.BeautyScore(coinEffectBeauty);
                 other.gameObject.SetActive(false);
                 Debug.Log("Coin Collected");
                 break;
 
             case CollisionType.Crown:
+                collisionEffect.Play();
+                AudioManager.instance.Play("Positive");
+                GameManager.instance.BeautyScore(crownEffectBeauty);
                 other.gameObject.SetActive(false);
                 crown.SetActive(true);
                 break;
@@ -120,6 +136,7 @@ public class PlayerCollision : MonoBehaviour
     private void ChangeAttire(List<GameObject> objList, ref string currentObj, GameObject obj)
     {
         obj.gameObject.SetActive(false);
+        collisionEffect.Play();
         if (currentObj != obj.name)
         {
          

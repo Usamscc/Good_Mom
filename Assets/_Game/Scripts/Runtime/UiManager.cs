@@ -24,6 +24,7 @@ public class UiManager : MonoBehaviour
   [SerializeField] private GameObject swipeSlider;
   
   private float fullDistance;
+    private bool isMusicOn = true;
   
   
   private void Awake()
@@ -43,7 +44,8 @@ public class UiManager : MonoBehaviour
 
   public void CallFailedScreenPopUp()
   {
-    failedScreenPopUp.SetActive(true);
+        AudioManager.instance.Play("Game End");
+        failedScreenPopUp.SetActive(true);
     topBar.SetActive(false);
     sliderCanvas.SetActive(false);
   }
@@ -77,20 +79,41 @@ public class UiManager : MonoBehaviour
 
   public void SettingBtnClick()
   {
-    settingPopUp.SetActive(true);
+        AudioManager.instance.Play("SettingOn");
+        settingPopUp.SetActive(true);
     Time.timeScale = 0;
     PauseGame?.Invoke();
   }
 
+public void MusicOffBtnClick()
+    {
+
+        AudioManager.instance.Play("SettingOn");
+        isMusicOn =!isMusicOn;
+        if (isMusicOn)
+        {
+            AudioManager.instance.Play("Theme");
+
+        }
+        else
+        {
+            AudioManager.instance.Pause("Theme");
+
+        }
+       
+    }
+
   public void RestartBtnClick()
   {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioManager.instance.Play("SettingOn");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     Time.timeScale = 1;
   }
 
   public void ExitBtnClick()
   {
-    settingPopUp.SetActive(false);
+        AudioManager.instance.Play("SettingOff");
+        settingPopUp.SetActive(false);
     Time.timeScale = 1;
   }
 }

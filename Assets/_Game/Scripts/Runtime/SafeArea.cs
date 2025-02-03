@@ -5,6 +5,8 @@ public class SafeArea : MonoBehaviour
     private Rect _safeArea;
     private Vector2 _minAnchor;
     private Vector2 _maxAnchor;
+    
+    
     private void Awake(){
         _rectTransform = GetComponent<RectTransform>();
         _safeArea = Screen.safeArea;

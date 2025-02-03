@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         playerData.coins +=1 ;
         UiManager.instance.SetCoinText( playerData.coins.ToString());
+        AudioManager.instance.Play("Coin");
     }
 
     public void BeautyScore(int score)
@@ -52,6 +53,9 @@ public class GameManager : MonoBehaviour
         if (playerData.beautyScore < 0)
         {
             playerData.beautyScore = 0;
+        }else if (playerData.beautyScore > 100)
+        {
+            playerData.beautyScore = 100;
         }
         UiManager.instance.BeautySliderSetter(playerData.beautyScore/100f); 
         // beautyText.text = playerData.beautyScore.ToString();
@@ -66,34 +70,20 @@ public class GameManager : MonoBehaviour
         if (beautyPositive)
         {
             cameraRotate.enabled = true;
-           
-            print("sharam ker");
         }
         else
         {
             UiManager.instance.FailedScreenPopUp();
+           
         }
-        
-        // if (beautyPositive)
-        // {
-        //     RotateItems cameraRotate = cameraParent.GetComponent<RotateItems>();
-        //     cameraRotate.enabled = true;
-        //     isGameEnded = true;
-        // }
-        // else
-        // {
-        //     UiManager.instance.FailedScreenPopUp();
-        // }
-        //
-        
+
     }
 
     public void StartGame()
     {
-        if (Input.GetAxis("Horizontal") != 0)
-        {
+        
             isGameStarted = true;
-        }
+        
 
         if (isGameStarted)
         {
@@ -123,7 +113,7 @@ public class GameManager : MonoBehaviour
 
     private void LoadData()
     {
-        filePath = Application.persistentDataPath + "/gamedata.json";
+        filePath = Application.persistentDataPath + "/gameData.json";
         if (!System.IO.File.Exists(filePath))
         {
             return;

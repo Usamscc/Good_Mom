@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -10,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private MaleCollision malePosiiton;
     [SerializeField] private ParticleSystem confettiPS;
     [SerializeField] private FixedTouchField fixedTouchField;
+    // [SerializeField] private GameObject coins;
+    // [SerializeField] private GameObject coinPrefab;
     
     [Header("Game Variables")]
     [SerializeField] private float movingSpeed = 1f;
@@ -26,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     {
         SendLevelDisatance();
         print("Screen.width "+Screen.width);
+        // Instantiate(coinPrefab,coins.transform);
     }
 
     private void SendLevelDisatance()
@@ -41,12 +45,10 @@ public class PlayerManager : MonoBehaviour
             MovePlayer();
           
         }
-        
-       
         GameManager.instance.RemainingLevelDistance(transform,malePosiiton.transform);
         
     }
-   
+
     private void MovePlayer()
     {
         if (fixedTouchField.isDragged)
@@ -66,7 +68,7 @@ public class PlayerManager : MonoBehaviour
             {
                 
                 // move = new Vector3(Input.GetAxis("Horizontal"), 0, movingSpeed);
-                move = new Vector3(fixedTouchField.TouchDist.x*horizontalSpeed , 0, movingSpeed);
+                move = new Vector3(fixedTouchField.TouchDist.x * horizontalSpeed *Time.deltaTime, 0, movingSpeed);
                 playerMovement.PlayerMovement(move);
             }
 

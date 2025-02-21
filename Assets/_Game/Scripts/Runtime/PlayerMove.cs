@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     
     [Space]
     [Header("Variables")]
-    [SerializeField] private float playerSpeed = 2f;
+    private float playerSpeed = 2f;
     [SerializeField] private Vector2 xBoundary=new Vector2( -1.5f, 2.2f);
     
     public void CheckBoundary()

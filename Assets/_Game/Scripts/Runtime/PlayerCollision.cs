@@ -81,6 +81,7 @@ public class PlayerCollision : MonoBehaviour
             
             case CollisionType.Obstacles:
                 AudioManager.instance.Play("Negative");
+                other.gameObject.SetActive(false);
                 GameManager.instance.BeautyScore(-obstacleEffectBeauty); 
                 playerManager.HandleCollisionAnimation(collisionType);
                 break;

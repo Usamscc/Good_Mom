@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -11,6 +12,11 @@ public class LoadingPanel : MonoBehaviour
    [SerializeField] private Slider slider; 
    [SerializeField] private  float targetValue = 1f;
    [SerializeField] private  float duration = 100f;
+
+   private void Awake()
+   {
+      Application.targetFrameRate = 60;
+   }
 
    void Start()
    {

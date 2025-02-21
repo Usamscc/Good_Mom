@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
@@ -8,12 +9,14 @@ using UnityEngine.UIElements.Experimental;
 public class MoveCoin : MonoBehaviour
 {
     [SerializeField] private Transform pointA,pointB;
-    public float speed =.1f;
+    [SerializeField] private float speed =.1f;
   
   
     void Start()
     {
-        StartCoroutine(nameof(MoveCoinCoroutine));
+        transform.position =new Vector3(pointA.position.x,transform.position.y,transform.position.z);
+        transform.DOMoveX(pointB.position.x,speed).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+        // StartCoroutine(MoveCoinCoroutine());
     }
     
     

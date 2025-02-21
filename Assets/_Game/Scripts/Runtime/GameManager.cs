@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
     {
         
             isGameStarted = true;
-        
 
         if (isGameStarted)
         {
@@ -114,15 +113,16 @@ public class GameManager : MonoBehaviour
     private void LoadData()
     {
         filePath = Application.persistentDataPath + "/gameData.json";
-        if (!System.IO.File.Exists(filePath))
+       
+        if (System.IO.File.Exists(filePath))
         {
-            return;
+            string json = System.IO.File.ReadAllText(filePath);
+            playerData = JsonUtility.FromJson<PlayerData>(json);
         }
-        string json = System.IO.File.ReadAllText(filePath);
-        playerData = JsonUtility.FromJson<PlayerData>(json);
-        
+       
         UiManager.instance.BeautySliderSetter(playerData.beautyScore/100f);
         UiManager.instance.SetCoinText( playerData.coins.ToString());
+       
         
         // string json = PlayerPrefs.GetString("SaveData");
         print("From load data "+playerData.coins);
